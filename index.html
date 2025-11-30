@@ -2,459 +2,353 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vimit - Senior Consultant & DevOps Engineer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vimit | Software Developer & SRE</title>
+    <meta name="description"
+        content="Portfolio of Vimit, a Senior Consultant & DevOps Engineer specializing in Python, AWS, and Scalable Backend Systems.">
 
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        :root{
-            --bg:#0f1724;
-            --surface:#0b1220;
-            --muted:#94a3b8;
-            --accent:#7c3aed;
-            --accent-2:#06b6d4;
-            --card:#0f1724;
-            --glass: rgba(255,255,255,0.04);
-            --glass-2: rgba(255,255,255,0.02);
-            --white: #e6eef8;
-            --shadow: 0 10px 30px rgba(2,6,23,0.6);
-            --radius:14px;
-            --transition: 300ms cubic-bezier(.2,.9,.2,1);
-        }
-
-        /* Reset */
-        *{box-sizing:border-box;margin:0;padding:0}
-        html,body{height:100%}
-        body{
-            font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto;
-            background:
-                radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.08), transparent 10%),
-                radial-gradient(900px 500px at 90% 90%, rgba(6,182,212,0.06), transparent 10%),
-                linear-gradient(180deg, #071025 0%, #07111a 60%);
-            color:var(--white);
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
-            line-height:1.5;
-            padding-bottom:60px;
-            scroll-behavior:smooth;
-        }
-
-        .container{max-width:1100px;margin:0 auto;padding:0 20px}
-
-        /* NAV */
-        nav{
-            position:sticky;top:18px;z-index:40;
-            background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-            backdrop-filter:blur(6px);
-            border-radius:999px;
-            padding:10px 14px;
-            display:flex;align-items:center;gap:16px;justify-content:space-between;
-            box-shadow:var(--shadow);
-            margin:0 20px 26px;
-        }
-        .logo{font-weight:800;color:var(--white);letter-spacing:0.4px}
-        .nav-right{display:flex;align-items:center;gap:18px}
-        .nav-links{display:flex;gap:18px}
-        .nav-links a{
-            color:var(--muted);text-decoration:none;font-weight:600;padding:8px 12px;border-radius:10px;
-            transition:var(--transition);
-        }
-        .nav-links a:hover{color:var(--white);background:linear-gradient(90deg, rgba(124,58,237,0.14), rgba(6,182,212,0.06))}
-
-        .hamburger{display:none;background:transparent;border:0;color:var(--muted);font-size:18px}
-
-        /* HERO */
-        header{
-            padding:48px 0 34px;
-            margin-bottom:18px;
-        }
-        .hero{
-            display:grid;grid-template-columns:1fr 360px;gap:30px;align-items:center;
-            background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent 40%);
-            border-radius:18px;padding:34px;border:1px solid rgba(255,255,255,0.03);
-            box-shadow:0 12px 40px rgba(2,6,23,0.55);
-        }
-        .hero-left h1{
-            font-size:2.6rem;margin-bottom:8px;line-height:1;letter-spacing:-0.6px;
-            color:var(--white);
-        }
-        .role{color:var(--muted);font-size:1.05rem;margin-bottom:18px}
-        .summary-short{color:var(--muted);max-width:70ch;margin-bottom:18px}
-        .cta-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-        .btn{
-            display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;
-            background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border:0;font-weight:700;
-            cursor:pointer;box-shadow:0 8px 24px rgba(124,58,237,0.18);transition:transform var(--transition);
-        }
-        .btn.secondary{
-            background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.06);font-weight:600;
-        }
-        .btn:active{transform:translateY(1px)}
-        .contact-chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-        .chip{background:var(--glass);padding:8px 12px;border-radius:999px;color:var(--muted);display:inline-flex;gap:8px;align-items:center;font-weight:600}
-
-        .hero-right{
-            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-            border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.03);
-        }
-        .profile{
-            display:flex;gap:16px;align-items:center;
-        }
-        .avatar{
-            width:84px;height:84px;border-radius:18px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
-            display:flex;align-items:center;justify-content:center;font-weight:800;font-size:28px;color:white;
-            box-shadow:0 10px 30px rgba(6,182,212,0.08);
-        }
-        .profile .meta{line-height:1}
-        .meta .name{font-weight:800;font-size:1.1rem}
-        .meta .small{color:var(--muted);font-size:0.9rem}
-
-        .stats{display:flex;gap:12px;margin-top:14px}
-        .stat{background:var(--glass-2);padding:10px;border-radius:10px;flex:1;text-align:center}
-        .stat .num{font-weight:800;font-size:1.05rem}
-        .stat .label{color:var(--muted);font-size:0.85rem;margin-top:6px}
-
-        /* SECTIONS */
-        section{margin-top:28px}
-        .section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-        .section-header h2{font-size:1.25rem;color:var(--white);margin:0}
-        .section-sub{color:var(--muted);font-size:0.95rem}
-
-        .grid{
-            display:grid;gap:18px;
-            grid-template-columns:repeat(3,1fr);
-        }
-        .card{
-            background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
-            border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03);
-            box-shadow: 0 8px 30px rgba(2,6,23,0.5);
-            transition: transform var(--transition), box-shadow var(--transition);
-        }
-        .card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(2,6,23,0.6)}
-        .skill-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-        .skill-pill{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;color:var(--muted);font-weight:700;font-size:0.86rem;border:1px solid rgba(255,255,255,0.02)}
-
-        /* Timeline */
-        .timeline{display:flex;flex-direction:column;gap:16px}
-        .timeline-item{display:flex;gap:16px;align-items:flex-start}
-        .timeline-dot{width:12px;height:12px;border-radius:6px;background:var(--accent);margin-top:6px;flex-shrink:0}
-        .timeline-content{color:var(--muted);background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
-        .company{color:var(--accent);font-weight:700;margin-bottom:6px}
-
-        /* Projects */
-        .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-        .project-card{display:flex;flex-direction:column;gap:10px}
-        .project-header{font-weight:700;color:var(--white)}
-        .tech-stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
-        .tech-item{background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:999px;color:var(--muted);font-weight:700;font-size:0.82rem}
-
-        /* Footer */
-        footer{margin-top:34px;padding:26px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);text-align:center;color:var(--muted);font-size:0.95rem;border:1px solid rgba(255,255,255,0.03)}
-
-        /* Responsive */
-        @media (max-width:980px){
-            .hero{grid-template-columns:1fr}
-            .grid{grid-template-columns:repeat(2,1fr)}
-            .projects-grid{grid-template-columns:1fr}
-            .nav-links{display:none}
-            .hamburger{display:block}
-        }
-        @media (max-width:640px){
-            .grid{grid-template-columns:1fr}
-            nav{margin:0 14px 16px}
-            .hero-right{order:-1}
-            .hero-left h1{font-size:1.8rem}
-            .avatar{width:72px;height:72px}
-        }
-
-        /* small helpers */
-        .muted{color:var(--muted)}
-        a.link{color:var(--accent);text-decoration:none;font-weight:700}
-    </style>
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <nav role="navigation" aria-label="Main navigation">
-        <div class="logo container">Vimit</div>
-        <div class="nav-right container" style="display:flex;justify-content:flex-end;gap:12px;">
-            <div class="nav-links" id="navLinks">
-                <a href="#summary">Summary</a>
-                <a href="#skills">Skills</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#education">Education</a>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Vimit<span style="color:var(--primary)"></span></a>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="Vimit_CV.pdf" class="btn btn-outline" target="_blank">Resume</a>
             </div>
-            <button class="hamburger" id="menuBtn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
-    <main class="container">
-        <header>
-            <div class="hero">
-                <div class="hero-left">
-                    <h1>Vimit</h1>
-                    <div class="role">Senior Consultant & DevOps Engineer</div>
-                    <p class="summary-short">
-                        8+ years building resilient cloud-native systems, automation tooling, and CI/CD platforms.
-                        Focused on reliability, observability, and developer productivity using AWS, Docker, and Python.
-                    </p>
-
-                    <div class="cta-row">
-                        <a class="btn" href="#projects"><i class="fas fa-rocket"></i> View Work</a>
-                        <a class="btn secondary" href="mailto:talk2vimit@gmail.com"><i class="fas fa-envelope"></i> Contact</a>
-                        <a class="btn secondary" href="#" onclick="event.preventDefault(); alert('Replace with CV link');"><i class="fas fa-download"></i> Download CV</a>
-                    </div>
-
-                    <div class="contact-chips" aria-hidden="false">
-                        <div class="chip"><i class="fas fa-phone"></i> +91‑9971572155</div>
-                        <div class="chip"><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka</div>
-                        <div class="chip"><i class="fab fa-github"></i> <a class="link" href="#" onclick="event.preventDefault()">github.com/vimit</a></div>
-                    </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-subtitle">Hello, I'm Vimit</span>
+                <h1>Engineering <span class="text-gradient">Scalable Backends</span> & Reliable Cloud Systems.</h1>
+                <p class="hero-description">
+                    Senior Consultant & DevOps Engineer with 8+ years of experience building resilient cloud-native
+                    architectures, automation tooling, and high-performance APIs.
+                </p>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
                 </div>
-
-                <aside class="hero-right">
-                    <div class="profile">
-                        <div class="avatar">V</div>
-                        <div class="meta">
-                            <div class="name">Vimit</div>
-                            <div class="small">Senior Consultant & DevOps Engineer</div>
-                            <div style="margin-top:8px;color:var(--muted);font-size:0.9rem">Available for consulting & contract roles</div>
-                        </div>
-                    </div>
-
-                    <div class="stats" role="list">
-                        <div class="stat" role="listitem">
-                            <div class="num">8+ yrs</div>
-                            <div class="label">Experience</div>
-                        </div>
-                        <div class="stat" role="listitem">
-                            <div class="num">1000+</div>
-                            <div class="label">Deployments</div>
-                        </div>
-                        <div class="stat" role="listitem">
-                            <div class="num">99.99%</div>
-                            <div class="label">Uptime (target)</div>
-                        </div>
-                    </div>
-                </aside>
             </div>
-        </header>
+        </div>
+        <!-- Abstract Background Shapes -->
+        <div class="hero-visual">
+            <!-- Can add SVG or 3D element here later -->
+        </div>
+    </section>
 
-        <!-- Summary -->
-        <section id="summary" aria-labelledby="summaryHeading">
-            <div class="section-header">
-                <h2 id="summaryHeading">Professional Summary</h2>
-                <div class="section-sub muted">Cloud-native architectures · SRE · Python · CI/CD · Observability</div>
-            </div>
-
-            <div class="card">
-                <p style="color:var(--muted);">
-                    Senior Consultant and DevOps Engineer with 8+ years of experience designing, developing, and automating
-                    large-scale distributed systems on AWS. Skilled in Python (Django, FastAPI), containerization, and
-                    infrastructure-as-code. Passionate about observability, incident response, and building developer-friendly
-                    platforms that increase velocity while reducing operational risk.
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="glass-card">
+                <p>
+                    I am a <strong>Senior Consultant and DevOps Engineer</strong> with over 8 years of experience in
+                    designing, developing, and automating large-scale distributed systems. My expertise lies in building
+                    robust, cloud-native enterprise solutions that scale efficiently.
+                </p>
+                <p>
+                    I specialize in <strong>Backend Architecture</strong> and <strong>Cloud Infrastructure</strong>,
+                    leading cross-functional teams to deliver high-quality web applications. From architecting
+                    microservices in <strong>Python (FastAPI/Django)</strong> to orchestrating containerized workloads
+                    on <strong>AWS</strong>, I focus on creating developer-friendly platforms that increase velocity
+                    while reducing operational risk.
+                </p>
+                <p>
+                    My philosophy is simple: <strong>Clarity, Reliability, and Automation</strong>. I have a proven
+                    track record of automating infrastructure provisioning with CloudFormation and Python (Boto3),
+                    streamlining CI/CD pipelines, and ensuring 99.99% system availability.
                 </p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Skills -->
-        <section id="skills">
-            <div class="section-header" style="margin-top:22px">
-                <h2>Technical Expertise</h2>
-                <div class="section-sub muted">Selected tools and technologies</div>
-            </div>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
 
-            <div class="grid" style="margin-top:12px">
-                <div class="card">
-                    <strong>Programming & Frameworks</strong>
-                    <div class="skill-list">
-                        <span class="skill-pill">Python</span><span class="skill-pill">Django</span><span class="skill-pill">FastAPI</span>
-                        <span class="skill-pill">Flask</span><span class="skill-pill">REST</span>
+                <!-- Backend -->
+                <div class="glass-card skill-category">
+                    <h3><i class="fas fa-code" style="color:var(--secondary)"></i> Backend Engineering</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">Microservices</span>
                     </div>
                 </div>
 
-                <div class="card">
-                    <strong>Cloud & DevOps</strong>
-                    <div class="skill-list">
-                        <span class="skill-pill">AWS</span><span class="skill-pill">Terraform</span><span class="skill-pill">CloudFormation</span>
-                        <span class="skill-pill">Docker</span><span class="skill-pill">K8s</span>
+                <!-- Cloud & DevOps -->
+                <div class="glass-card skill-category">
+                    <h3><i class="fas fa-cloud" style="color:var(--primary)"></i> Cloud & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS (EC2, S3, VPC, IAM)</span>
+                        <span class="skill-tag">CloudFormation</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Boto3</span>
                     </div>
                 </div>
 
-                <div class="card">
-                    <strong>Monitoring & Infra</strong>
-                    <div class="skill-list">
-                        <span class="skill-pill">Prometheus</span><span class="skill-pill">Grafana</span><span class="skill-pill">ELK</span>
-                        <span class="skill-pill">CloudWatch</span><span class="skill-pill">SRE</span>
+                <!-- System Design -->
+                <div class="glass-card skill-category">
+                    <h3><i class="fas fa-sitemap" style="color:#ef4444"></i> System Design</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">Distributed Systems</span>
+                        <span class="skill-tag">Load Balancing</span>
+                        <span class="skill-tag">Design Patterns (MVT, OOP)</span>
+                        <span class="skill-tag">RESTful Architecture</span>
                     </div>
                 </div>
-            </div>
-        </section>
+                <div class="glass-card skill-category">
+                    <h3><i class="fas fa-database" style="color:#10b981"></i> Databases</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Spatial DBs</span>
+                    </div>
+                </div>
 
-        <!-- Experience -->
-        <section id="experience">
-            <div class="section-header" style="margin-top:22px">
-                <h2>Employment History</h2>
-                <div class="section-sub muted">Selected roles & impact</div>
-            </div>
+                <!-- Frontend -->
+                <div class="glass-card skill-category">
+                    <h3><i class="fas fa-laptop-code" style="color:#f59e0b"></i> Frontend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">HTML5/CSS3</span>
+                        <span class="skill-tag">Vuetify</span>
+                    </div>
+                </div>
 
-            <div class="timeline" style="margin-top:8px">
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <div class="glass-card project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-robot"></i></div>
+                        <div class="project-links">
+                            <!-- <a href="#"><i class="fab fa-github"></i></a> -->
+                        </div>
+                    </div>
+                    <h3>SRE Autoremediation Platform</h3>
+                    <p>
+                        Built a comprehensive automation platform to remediate incidents, unify alerts, and provide
+                        runbooks for responders. Integrated Prometheus, Grafana, and ELK Stack for proactive incident
+                        response and system health monitoring.
+                    </p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>FastAPI</span>
+                        <span>Vue.js</span>
+                        <span>Prometheus</span>
+                        <span>Jenkins</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-vr-cardboard"></i></div>
+                    </div>
+                    <h3>Simulation Center Platform</h3>
+                    <p>
+                        Contributed to the development of the Simulation Center platform (TEL, CCL, NEL) to support
+                        training and evaluation labs. Built scalable backend services using Django and FastAPI to handle
+                        real-time simulation data.
+                    </p>
+                    <div class="project-tech">
+                        <span>Django</span>
+                        <span>Vue.js</span>
+                        <span>PostgreSQL</span>
+                        <span>Docker Swarm</span>
+                        <span>Redis</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
+                    </div>
+                    <h3>SafelyBack & MoveTek</h3>
+                    <p>
+                        Implemented high-availability backup solutions and transportation services. Focused on
+                        automation, data integrity, and real-time tracking using AWS Lambda, S3, and MongoDB.
+                    </p>
+                    <div class="project-tech">
+                        <span>AWS Lambda</span>
+                        <span>S3</span>
+                        <span>MongoDB</span>
+                        <span>Docker</span>
+                        <span>Angular</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="glass-card project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    </div>
+                    <h3>Geospatial & HR Systems</h3>
+                    <p>
+                        Developed GIS applications for MapmyIndia and Ramtech using ArcGIS and QGIS. Also contributed to
+                        HR management systems and Tradeindia.com, focusing on seamless user experience and data
+                        management.
+                    </p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>PostGIS</span>
+                        <span>ArcGIS</span>
+                        <span>QGIS</span>
+                        <span>SQL</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+
+                <!-- Role 1 -->
                 <div class="timeline-item">
-                    <div class="timeline-dot" aria-hidden="true"></div>
-                    <div class="timeline-content card">
-                        <div class="company">Senior Consultant — Hitachi, Bengaluru <span style="float:right;color:var(--muted);font-weight:600">Sep 2023 — Present</span></div>
-                        <ul style="color:var(--muted);margin-top:8px">
-                            <li>Led SRE initiatives to improve reliability, automate remediation and provision cloud infra.</li>
-                            <li>Built FastAPI microservices and custom monitoring integrating Prometheus & ELK.</li>
-                            <li>Automated infra with CloudFormation & Python (boto3) and improved CI/CD velocity.</li>
-                        </ul>
-                    </div>
+                    <span class="timeline-date">Sep 2023 - Present</span>
+                    <h3 class="timeline-role">Senior Consultant</h3>
+                    <div class="timeline-company">Hitachi, Bengaluru</div>
+                    <p>
+                        Leading SRE initiatives to enhance service reliability and automate cloud infrastructure using
+                        AWS. Designed FastAPI microservices, automated provisioning with CloudFormation and Boto3, and
+                        improved CI/CD velocity. Awarded Best Performer and Pinnacle Award.
+                    </p>
                 </div>
 
+                <!-- Role 2 -->
                 <div class="timeline-item">
-                    <div class="timeline-dot" aria-hidden="true" style="background:var(--accent-2)"></div>
-                    <div class="timeline-content card">
-                        <div class="company">Professional II — Capgemini, Bengaluru <span style="float:right;color:var(--muted);font-weight:600">Dec 2021 — Sep 2023</span></div>
-                        <ul style="color:var(--muted);margin-top:8px">
-                            <li>Led full-stack projects, established CI/CD workflows and improved deployment reliability.</li>
-                            <li>Architected load balancing, scaling, and observability for production services.</li>
-                        </ul>
-                    </div>
+                    <span class="timeline-date">Dec 2021 - Sep 2023</span>
+                    <h3 class="timeline-role">Professional II</h3>
+                    <div class="timeline-company">Capgemini, Bengaluru</div>
+                    <p>
+                        Led full-stack projects using Python, Django, and Vue.js. Architected load balancers and scaling
+                        strategies for production services. Received Highest Rating for exceptional performance and
+                        recognized as Employee of the Month.
+                    </p>
                 </div>
 
+                <!-- Role 3 -->
                 <div class="timeline-item">
-                    <div class="timeline-dot" aria-hidden="true" style="background:#6ee7b7"></div>
-                    <div class="timeline-content card">
-                        <div class="company">Software Developer — Nuage BizTech / Infocom Network (2019 — 2021)</div>
-                        <ul style="color:var(--muted);margin-top:8px">
-                            <li>Built REST APIs with Django/DRF, containerized apps, and automated deployments with Docker & Nginx.</li>
-                        </ul>
+                    <span class="timeline-date">Jun 2020 - Nov 2021</span>
+                    <h3 class="timeline-role">Software Developer</h3>
+                    <div class="timeline-company">Nuage BizTech, Noida</div>
+                    <p>
+                        Developed REST APIs with Django DRF. Managed AWS EC2/S3 infrastructure and containerized
+                        applications using Docker and Nginx.
+                    </p>
+                </div>
+
+                <!-- Role 4 -->
+                <div class="timeline-item">
+                    <span class="timeline-date">Aug 2019 - Jun 2020</span>
+                    <h3 class="timeline-role">Software Developer</h3>
+                    <div class="timeline-company">Infocom Network Ltd (TradeIndia), Noida</div>
+                    <p>
+                        Built B2B web applications using Python/Django. Automated system tasks using Shell scripting and
+                        Linux tools.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="glass-card" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                    I'm currently available for consulting and new opportunities. Whether you have a question or just
+                    want to say hi, feel free to reach out!
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 1.5rem; align-items: center;">
+                    <a href="mailto:talk2vimit@gmail.com" class="btn btn-primary"
+                        style="font-size: 1.1rem; padding: 1rem 2rem;">
+                        <i class="fas fa-envelope"></i> talk2vimit@gmail.com
+                    </a>
+
+                    <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem;">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91-9971572155</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bengaluru, Karnataka</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/vimit" target="_blank">github.com/vimit</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Projects -->
-        <section id="projects">
-            <div class="section-header" style="margin-top:22px">
-                <h2>Projects</h2>
-                <div class="section-sub muted">Selected contributions</div>
-            </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Vimit. All rights reserved.</p>
+        </div>
+    </footer>
 
-            <div class="projects-grid" style="margin-top:12px">
-                <div class="card project-card">
-                    <div class="project-header">SRE Platform — Autoremediation & Service Desk</div>
-                    <div style="color:var(--muted)">
-                        Built automation tooling to remediate incidents, unify alerts, and provide runbooks for responders.
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-item">Python</span><span class="tech-item">FastAPI</span><span class="tech-item">Jenkins</span><span class="tech-item">Prometheus</span>
-                    </div>
-                </div>
-
-                <div class="card project-card">
-                    <div class="project-header">Simulation Center Platform</div>
-                    <div style="color:var(--muted)">
-                        Feature development for training platforms with scalable backend services and dashboards.
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-item">Django</span><span class="tech-item">Vue.js</span><span class="tech-item">Postgres</span>
-                    </div>
-                </div>
-
-                <div class="card project-card">
-                    <div class="project-header">SafelyBack & MoveTek</div>
-                    <div style="color:var(--muted)">
-                        Implemented backup solutions and transportation services with focus on HA and automation.
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-item">Docker</span><span class="tech-item">AWS</span><span class="tech-item">MongoDB</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education & Accomplishments -->
-        <section id="education">
-            <div class="section-header" style="margin-top:22px">
-                <h2>Education & Accomplishments</h2>
-                <div class="section-sub muted">Credentials & recognition</div>
-            </div>
-
-            <div class="grid" style="grid-template-columns:1fr 1fr; margin-top:12px">
-                <div class="card">
-                    <strong>Bachelor of Technology</strong>
-                    <div class="muted" style="margin-top:8px">C.V. Raman College of Engineering, Bhubaneshwar (2009 - 2013)</div>
-                </div>
-
-                <div class="card">
-                    <strong>Accomplishments</strong>
-                    <ul style="color:var(--muted);margin-top:10px;list-style:none;padding-left:0;display:flex;flex-direction:column;gap:8px">
-                        <li>Highest Rating at Capgemini — recognized for exceptional performance.</li>
-                        <li>Employee of the Month — Capgemini & NuageBiz Tech.</li>
-                        <li>Awards: Best Performer & Pinnacle Award at Hitachi.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <div style="max-width:900px;margin:0 auto">
-                <p style="margin-bottom:10px;color:var(--muted)">I hereby declare that the information provided is true and correct to the best of my knowledge and belief.</p>
-                <div style="color:var(--muted)">© <span id="currentYear"></span> Vimit. All rights reserved.</div>
-            </div>
-        </footer>
-    </main>
-
-    <script>
-        // Mobile menu toggle
-        const btn = document.getElementById('menuBtn');
-        const nav = document.getElementById('navLinks');
-        btn && btn.addEventListener('click', () => {
-            if (nav.style.display === 'flex') {
-                nav.style.display = 'none';
-            } else {
-                nav.style.display = 'flex';
-                nav.style.flexDirection = 'column';
-                nav.style.background = 'transparent';
-                nav.style.position = 'absolute';
-                nav.style.right = '20px';
-                nav.style.top = '68px';
-                nav.style.padding = '10px';
-                nav.style.borderRadius = '10px';
-                nav.style.boxShadow = '0 8px 30px rgba(2,6,23,0.6)';
-            }
-        });
-
-        // simple progressive enhancement: close menu on resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 980) {
-                nav.style.display = '';
-                nav.style.position = '';
-                nav.style.top = '';
-                nav.style.right = '';
-                nav.style.padding = '';
-                nav.style.boxShadow = '';
-                nav.style.flexDirection = '';
-            } else {
-                // hide nav by default on small screens
-                nav.style.display = 'none';
-            }
-        });
-
-        // set initial mobile state
-        if (window.innerWidth <= 980) {
-            document.getElementById('navLinks').style.display = 'none';
-        }
-
-        // dynamic copyright year
-        const yearEl = document.getElementById('currentYear');
-        if (yearEl) yearEl.textContent = new Date().getFullYear();
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
