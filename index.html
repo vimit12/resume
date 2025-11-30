@@ -2,691 +2,459 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vimit - Senior Consultant & DevOps Engineer</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --text: #333;
-            --text-light: #7f8c8d;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
+        :root{
+            --bg:#0f1724;
+            --surface:#0b1220;
+            --muted:#94a3b8;
+            --accent:#7c3aed;
+            --accent-2:#06b6d4;
+            --card:#0f1724;
+            --glass: rgba(255,255,255,0.04);
+            --glass-2: rgba(255,255,255,0.02);
+            --white: #e6eef8;
+            --shadow: 0 10px 30px rgba(2,6,23,0.6);
+            --radius:14px;
+            --transition: 300ms cubic-bezier(.2,.9,.2,1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Reset */
+        *{box-sizing:border-box;margin:0;padding:0}
+        html,body{height:100%}
+        body{
+            font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto;
+            background:
+                radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.08), transparent 10%),
+                radial-gradient(900px 500px at 90% 90%, rgba(6,182,212,0.06), transparent 10%),
+                linear-gradient(180deg, #071025 0%, #07111a 60%);
+            color:var(--white);
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            line-height:1.5;
+            padding-bottom:60px;
+            scroll-behavior:smooth;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: #f9f9f9;
-        }
+        .container{max-width:1100px;margin:0 auto;padding:0 20px}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        /* NAV */
+        nav{
+            position:sticky;top:18px;z-index:40;
+            background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+            backdrop-filter:blur(6px);
+            border-radius:999px;
+            padding:10px 14px;
+            display:flex;align-items:center;gap:16px;justify-content:space-between;
+            box-shadow:var(--shadow);
+            margin:0 20px 26px;
         }
+        .logo{font-weight:800;color:var(--white);letter-spacing:0.4px}
+        .nav-right{display:flex;align-items:center;gap:18px}
+        .nav-links{display:flex;gap:18px}
+        .nav-links a{
+            color:var(--muted);text-decoration:none;font-weight:600;padding:8px 12px;border-radius:10px;
+            transition:var(--transition);
+        }
+        .nav-links a:hover{color:var(--white);background:linear-gradient(90deg, rgba(124,58,237,0.14), rgba(6,182,212,0.06))}
 
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+        .hamburger{display:none;background:transparent;border:0;color:var(--muted);font-size:18px}
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-            background-size: cover;
-            background-position: center;
+        /* HERO */
+        header{
+            padding:48px 0 34px;
+            margin-bottom:18px;
         }
+        .hero{
+            display:grid;grid-template-columns:1fr 360px;gap:30px;align-items:center;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent 40%);
+            border-radius:18px;padding:34px;border:1px solid rgba(255,255,255,0.03);
+            box-shadow:0 12px 40px rgba(2,6,23,0.55);
+        }
+        .hero-left h1{
+            font-size:2.6rem;margin-bottom:8px;line-height:1;letter-spacing:-0.6px;
+            color:var(--white);
+        }
+        .role{color:var(--muted);font-size:1.05rem;margin-bottom:18px}
+        .summary-short{color:var(--muted);max-width:70ch;margin-bottom:18px}
+        .cta-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+        .btn{
+            display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;
+            background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border:0;font-weight:700;
+            cursor:pointer;box-shadow:0 8px 24px rgba(124,58,237,0.18);transition:transform var(--transition);
+        }
+        .btn.secondary{
+            background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.06);font-weight:600;
+        }
+        .btn:active{transform:translateY(1px)}
+        .contact-chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+        .chip{background:var(--glass);padding:8px 12px;border-radius:999px;color:var(--muted);display:inline-flex;gap:8px;align-items:center;font-weight:600}
 
-        .header-content {
-            position: relative;
-            z-index: 1;
+        .hero-right{
+            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.03);
         }
+        .profile{
+            display:flex;gap:16px;align-items:center;
+        }
+        .avatar{
+            width:84px;height:84px;border-radius:18px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+            display:flex;align-items:center;justify-content:center;font-weight:800;font-size:28px;color:white;
+            box-shadow:0 10px 30px rgba(6,182,212,0.08);
+        }
+        .profile .meta{line-height:1}
+        .meta .name{font-weight:800;font-size:1.1rem}
+        .meta .small{color:var(--muted);font-size:0.9rem}
 
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
+        .stats{display:flex;gap:12px;margin-top:14px}
+        .stat{background:var(--glass-2);padding:10px;border-radius:10px;flex:1;text-align:center}
+        .stat .num{font-weight:800;font-size:1.05rem}
+        .stat .label{color:var(--muted);font-size:0.85rem;margin-top:6px}
 
-        .title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
+        /* SECTIONS */
+        section{margin-top:28px}
+        .section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+        .section-header h2{font-size:1.25rem;color:var(--white);margin:0}
+        .section-sub{color:var(--muted);font-size:0.95rem}
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
+        .grid{
+            display:grid;gap:18px;
+            grid-template-columns:repeat(3,1fr);
         }
+        .card{
+            background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+            border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03);
+            box-shadow: 0 8px 30px rgba(2,6,23,0.5);
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+        .card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(2,6,23,0.6)}
+        .skill-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+        .skill-pill{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;color:var(--muted);font-weight:700;font-size:0.86rem;border:1px solid rgba(255,255,255,0.02)}
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 16px;
-            border-radius: 30px;
-            backdrop-filter: blur(5px);
-        }
+        /* Timeline */
+        .timeline{display:flex;flex-direction:column;gap:16px}
+        .timeline-item{display:flex;gap:16px;align-items:flex-start}
+        .timeline-dot{width:12px;height:12px;border-radius:6px;background:var(--accent);margin-top:6px;flex-shrink:0}
+        .timeline-content{color:var(--muted);background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+        .company{color:var(--accent);font-weight:700;margin-bottom:6px}
 
-        /* Section Styles */
-        section {
-            padding: 60px 0;
-        }
-
-        section:nth-child(even) {
-            background-color: white;
-        }
-
-        h2 {
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            color: var(--primary);
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 4px;
-            background-color: var(--secondary);
-        }
-
-        .section-center {
-            text-align: center;
-        }
-
-        .section-center h2::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Summary Section */
-        .summary {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* Skills Section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .skill-category {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill-category h3 {
-            color: var(--secondary);
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .skill-category h3 i {
-            color: var(--accent);
-        }
-
-        .skill-list {
-            list-style: none;
-        }
-
-        .skill-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .skill-list li:last-child {
-            border-bottom: none;
-        }
-
-        .skill-list li i {
-            color: var(--secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Experience Section */
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 30px;
-            top: 0;
-            height: 100%;
-            width: 4px;
-            background: var(--secondary);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 40px;
-            padding-left: 80px;
-        }
-
-        .timeline-date {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 60px;
-            height: 60px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            text-align: center;
-            line-height: 1.2;
-            padding: 5px;
-        }
-
-        .timeline-content {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .timeline-content h3 {
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        .timeline-content .company {
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .timeline-content ul {
-            padding-left: 20px;
-        }
-
-        .timeline-content li {
-            margin-bottom: 8px;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-header {
-            background: var(--primary);
-            color: white;
-            padding: 20px;
-        }
-
-        .project-header h3 {
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-        }
-
-        .project-body {
-            padding: 20px;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 15px;
-        }
-
-        .tech-item {
-            background: var(--light);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--primary);
-        }
-
-        /* Education & Accomplishments */
-        .education-accomplishments {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .accomplishments-list {
-            list-style: none;
-        }
-
-        .accomplishments-list li {
-            padding: 15px;
-            background: white;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .accomplishments-list li i {
-            color: var(--accent);
-            font-size: 1.5rem;
-        }
+        /* Projects */
+        .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+        .project-card{display:flex;flex-direction:column;gap:10px}
+        .project-header{font-weight:700;color:var(--white)}
+        .tech-stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+        .tech-item{background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:999px;color:var(--muted);font-weight:700;font-size:0.82rem}
 
         /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 30px 0;
+        footer{margin-top:34px;padding:26px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);text-align:center;color:var(--muted);font-size:0.95rem;border:1px solid rgba(255,255,255,0.03)}
+
+        /* Responsive */
+        @media (max-width:980px){
+            .hero{grid-template-columns:1fr}
+            .grid{grid-template-columns:repeat(2,1fr)}
+            .projects-grid{grid-template-columns:1fr}
+            .nav-links{display:none}
+            .hamburger{display:block}
+        }
+        @media (max-width:640px){
+            .grid{grid-template-columns:1fr}
+            nav{margin:0 14px 16px}
+            .hero-right{order:-1}
+            .hero-left h1{font-size:1.8rem}
+            .avatar{width:72px;height:72px}
         }
 
-        .declaration {
-            max-width: 700px;
-            margin: 0 auto;
-            font-style: italic;
-            opacity: 0.8;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .title {
-                font-size: 1.4rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .education-accomplishments {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline::before {
-                left: 20px;
-            }
-
-            .timeline-item {
-                padding-left: 60px;
-            }
-
-            .timeline-date {
-                width: 40px;
-                height: 40px;
-                font-size: 0.8rem;
-            }
-        }
+        /* small helpers */
+        .muted{color:var(--muted)}
+        a.link{color:var(--accent);text-decoration:none;font-weight:700}
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="container header-content">
-            <h1>Vimit</h1>
-            <div class="title">Senior Consultant & DevOps Engineer</div>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>+91-9971572155</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>talk2vimit@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Bengaluru, Karnataka</span>
-                </div>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="logo container">Vimit</div>
+        <div class="nav-right container" style="display:flex;justify-content:flex-end;gap:12px;">
+            <div class="nav-links" id="navLinks">
+                <a href="#summary">Summary</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
             </div>
+            <button class="hamburger" id="menuBtn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
         </div>
-    </header>
+    </nav>
 
-    <section>
-        <div class="container">
-            <h2 class="section-center">Professional Summary</h2>
-            <p class="summary">
-                Senior Consultant and DevOps Engineer with 8+ years of experience in designing, developing, and
-                automating large-scale distributed systems using AWS, Docker, CloudFormation, and CI/CD pipelines.
-                Skilled in Python (Django, FastAPI), backend architecture, and infrastructure automation. Experienced in
-                building and maintaining scalable micro-services, ensuring system reliability and availability, and
-                leading cross-functional teams to deliver robust, cloud-native enterprise solutions.
-            </p>
-        </div>
-    </section>
+    <main class="container">
+        <header>
+            <div class="hero">
+                <div class="hero-left">
+                    <h1>Vimit</h1>
+                    <div class="role">Senior Consultant & DevOps Engineer</div>
+                    <p class="summary-short">
+                        8+ years building resilient cloud-native systems, automation tooling, and CI/CD platforms.
+                        Focused on reliability, observability, and developer productivity using AWS, Docker, and Python.
+                    </p>
 
-    <section style="background-color: white;">
-        <div class="container">
-            <h2 class="section-center">Technical Expertise</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Programming & Frameworks</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-check"></i> Python</li>
-                        <li><i class="fas fa-check"></i> Django</li>
-                        <li><i class="fas fa-check"></i> FastAPI</li>
-                        <li><i class="fas fa-check"></i> Flask</li>
-                        <li><i class="fas fa-check"></i> RESTful APIs</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-cloud"></i> DevOps & Cloud</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-check"></i> AWS (EC2, S3, IAM, CloudFormation, Lambda, RDS)</li>
-                        <li><i class="fas fa-check"></i> Docker</li>
-                        <li><i class="fas fa-check"></i> Jenkins, GitLab CI/CD</li>
-                        <li><i class="fas fa-check"></i> Terraform, Ansible</li>
-                        <li><i class="fas fa-check"></i> VPC, Route 53, CloudWatch</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-database"></i> Databases</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-check"></i> PostgreSQL</li>
-                        <li><i class="fas fa-check"></i> MongoDB</li>
-                        <li><i class="fas fa-check"></i> Redis</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-chart-line"></i> Monitoring & Logging</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-check"></i> Prometheus</li>
-                        <li><i class="fas fa-check"></i> Grafana</li>
-                        <li><i class="fas fa-check"></i> ELK Stack</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Tools & Methodologies</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-check"></i> Git, GitHub, GitLab</li>
-                        <li><i class="fas fa-check"></i> Linux, Unix, Windows</li>
-                        <li><i class="fas fa-check"></i> Agile, Scrum, SDLC</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="cta-row">
+                        <a class="btn" href="#projects"><i class="fas fa-rocket"></i> View Work</a>
+                        <a class="btn secondary" href="mailto:talk2vimit@gmail.com"><i class="fas fa-envelope"></i> Contact</a>
+                        <a class="btn secondary" href="#" onclick="event.preventDefault(); alert('Replace with CV link');"><i class="fas fa-download"></i> Download CV</a>
+                    </div>
 
-    <section>
-        <div class="container">
-            <h2 class="section-center">Employment History</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Sep 2023<br>-<br>Present</div>
-                    <div class="timeline-content">
-                        <h3>Senior Consultant</h3>
-                        <span class="company">Hitachi, Bengaluru</span>
-                        <ul>
-                            <li>Lead the SRE team to enhance service reliability, automation, and cloud infrastructure
-                                using AWS and DevOps best practices.</li>
-                            <li>Designed and optimized FastAPI-based microservices and internal dashboards to improve
-                                scalability and operational visibility.</li>
-                            <li>Automated infrastructure provisioning with AWS CloudFormation and Python (Boto3),
-                                reducing setup time and errors.</li>
-                            <li>Streamlined CI/CD pipelines in Jenkins, enabling faster, consistent deployments across
-                                environments.</li>
-                            <li>Developed a custom end-to-end monitoring and alerting solution integrating Prometheus,
-                                Grafana, and the ELK Stack.</li>
-                        </ul>
+                    <div class="contact-chips" aria-hidden="false">
+                        <div class="chip"><i class="fas fa-phone"></i> +91‑9971572155</div>
+                        <div class="chip"><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka</div>
+                        <div class="chip"><i class="fab fa-github"></i> <a class="link" href="#" onclick="event.preventDefault()">github.com/vimit</a></div>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Dec 2021<br>-<br>Sep 2023</div>
-                    <div class="timeline-content">
-                        <h3>Professional II</h3>
-                        <span class="company">Capgemini Information Technology, Bengaluru</span>
-                        <ul>
-                            <li>Led full-stack development projects using Python, Django, FastAPI, and Vue.js,
-                                delivering high-quality web applications.</li>
-                            <li>Directed deployment strategies and CI/CD workflows, ensuring automated, repeatable, and
-                                reliable releases.</li>
-                            <li>Architected and configured load balancers to optimize traffic distribution and maintain
-                                application uptime.</li>
-                            <li>Oversaw application health monitoring, incident resolution, and preventive maintenance.
-                            </li>
-                            <li>Scaled infrastructure by implementing horizontal scaling, optimizing databases, and
-                                integrating CDN and caching strategies.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Jun 2020<br>-<br>Nov 2021</div>
-                    <div class="timeline-content">
-                        <h3>Software Developer</h3>
-                        <span class="company">Nuage BizTech Pvt Ltd, Noida</span>
-                        <ul>
-                            <li>Developed APIs using Django Rest Framework (DRF) with strong understanding of RESTful
-                                architecture.</li>
-                            <li>Proficient in Django framework and MVT design pattern with expertise in object-oriented
-                                programming.</li>
-                            <li>Skilled in Agile methodologies, Scrum, and managing version control with Git.</li>
-                            <li>Hands-on experience with AWS services (EC2, S3), Docker for deployment, and Nginx
-                                application servers.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Aug 2019<br>-<br>Jun 2020</div>
-                    <div class="timeline-content">
-                        <h3>Software Developer</h3>
-                        <span class="company">Infocom Network Ltd. (Trade India), Noida</span>
-                        <ul>
-                            <li>Built e-commerce, B2B, and web applications using Python/Django, JavaScript, HTML, CSS,
-                                and Bootstrap.</li>
-                            <li>Proficient in writing map-reduce programs, using Unix/Linux commands via SSH, and
-                                automating tasks.</li>
-                            <li>Skilled in team collaboration using GIT for version control and following Agile
-                                methodologies.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Apr 2018<br>-<br>Aug 2019</div>
-                    <div class="timeline-content">
-                        <h3>GIS Developer</h3>
-                        <span class="company">CE Info System Ltd. (MapmyIndia), Delhi</span>
-                        <ul>
-                            <li>Built GIS applications using ESRI ArcGIS, QGIS, and Mapbox, focusing on spatial data
-                                analysis and visualization.</li>
-                            <li>Proficient in Python and SQL for geospatial scripting, data processing, and spatial
-                                database management.</li>
-                            <li>Managed GIS data workflows, collaborating in cross-functional teams, and delivering
-                                projects on time.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section style="background-color: white;">
-        <div class="container">
-            <h2 class="section-center">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>SRE Project - Autoremdiation, CloudNow, Service Desk, Backup & Monitoring</h3>
-                    </div>
-                    <div class="project-body">
-                        <p>Contributed to Autoremediation, CloudNow, Service Desk, and Backup & Monitoring tools to
-                            enhance service reliability, automate operations, and reduce manual effort.</p>
-                        <div class="tech-stack">
-                            <span class="tech-item">Python</span>
-                            <span class="tech-item">FastAPI</span>
-                            <span class="tech-item">Vue.js</span>
-                            <span class="tech-item">Jenkins</span>
-                            <span class="tech-item">Docker</span>
-                            <span class="tech-item">Prometheus</span>
-                            <span class="tech-item">Grafana</span>
+                <aside class="hero-right">
+                    <div class="profile">
+                        <div class="avatar">V</div>
+                        <div class="meta">
+                            <div class="name">Vimit</div>
+                            <div class="small">Senior Consultant & DevOps Engineer</div>
+                            <div style="margin-top:8px;color:var(--muted);font-size:0.9rem">Available for consulting & contract roles</div>
                         </div>
                     </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Simulation Center (TEL, CCL, NEL)</h3>
-                    </div>
-                    <div class="project-body">
-                        <p>Contributed to the development and enhancement of the Simulation Center platform to support
-                            training and evaluation labs.</p>
-                        <div class="tech-stack">
-                            <span class="tech-item">Python</span>
-                            <span class="tech-item">Django</span>
-                            <span class="tech-item">FastAPI</span>
-                            <span class="tech-item">Vue.js</span>
-                            <span class="tech-item">PostgreSQL</span>
-                            <span class="tech-item">MongoDB</span>
-                            <span class="tech-item">Docker</span>
+
+                    <div class="stats" role="list">
+                        <div class="stat" role="listitem">
+                            <div class="num">8+ yrs</div>
+                            <div class="label">Experience</div>
+                        </div>
+                        <div class="stat" role="listitem">
+                            <div class="num">1000+</div>
+                            <div class="label">Deployments</div>
+                        </div>
+                        <div class="stat" role="listitem">
+                            <div class="num">99.99%</div>
+                            <div class="label">Uptime (target)</div>
                         </div>
                     </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>SafelyBack, MoveTek, Travel Services, Rento Space, HRM's</h3>
+                </aside>
+            </div>
+        </header>
+
+        <!-- Summary -->
+        <section id="summary" aria-labelledby="summaryHeading">
+            <div class="section-header">
+                <h2 id="summaryHeading">Professional Summary</h2>
+                <div class="section-sub muted">Cloud-native architectures · SRE · Python · CI/CD · Observability</div>
+            </div>
+
+            <div class="card">
+                <p style="color:var(--muted);">
+                    Senior Consultant and DevOps Engineer with 8+ years of experience designing, developing, and automating
+                    large-scale distributed systems on AWS. Skilled in Python (Django, FastAPI), containerization, and
+                    infrastructure-as-code. Passionate about observability, incident response, and building developer-friendly
+                    platforms that increase velocity while reducing operational risk.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <div class="section-header" style="margin-top:22px">
+                <h2>Technical Expertise</h2>
+                <div class="section-sub muted">Selected tools and technologies</div>
+            </div>
+
+            <div class="grid" style="margin-top:12px">
+                <div class="card">
+                    <strong>Programming & Frameworks</strong>
+                    <div class="skill-list">
+                        <span class="skill-pill">Python</span><span class="skill-pill">Django</span><span class="skill-pill">FastAPI</span>
+                        <span class="skill-pill">Flask</span><span class="skill-pill">REST</span>
                     </div>
-                    <div class="project-body">
-                        <p>Contributed to the development of various applications, including backup solutions,
-                            transportation platforms, travel services, rental management, and HR management systems.</p>
-                        <div class="tech-stack">
-                            <span class="tech-item">Python</span>
-                            <span class="tech-item">Django</span>
-                            <span class="tech-item">FastAPI</span>
-                            <span class="tech-item">Angular</span>
-                            <span class="tech-item">MongoDB</span>
-                            <span class="tech-item">Redis</span>
-                            <span class="tech-item">AWS</span>
-                        </div>
+                </div>
+
+                <div class="card">
+                    <strong>Cloud & DevOps</strong>
+                    <div class="skill-list">
+                        <span class="skill-pill">AWS</span><span class="skill-pill">Terraform</span><span class="skill-pill">CloudFormation</span>
+                        <span class="skill-pill">Docker</span><span class="skill-pill">K8s</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <strong>Monitoring & Infra</strong>
+                    <div class="skill-list">
+                        <span class="skill-pill">Prometheus</span><span class="skill-pill">Grafana</span><span class="skill-pill">ELK</span>
+                        <span class="skill-pill">CloudWatch</span><span class="skill-pill">SRE</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <div class="container">
-            <h2 class="section-center">Education & Accomplishments</h2>
-            <div class="education-accomplishments">
-                <div>
-                    <h3>Education</h3>
-                    <div class="timeline-content">
-                        <h3>Bachelor of Technology</h3>
-                        <span class="company">2009-2013</span>
-                        <p>C.V.Raman College of Engineering, Bhubaneshwar</p>
+        <!-- Experience -->
+        <section id="experience">
+            <div class="section-header" style="margin-top:22px">
+                <h2>Employment History</h2>
+                <div class="section-sub muted">Selected roles & impact</div>
+            </div>
+
+            <div class="timeline" style="margin-top:8px">
+                <div class="timeline-item">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content card">
+                        <div class="company">Senior Consultant — Hitachi, Bengaluru <span style="float:right;color:var(--muted);font-weight:600">Sep 2023 — Present</span></div>
+                        <ul style="color:var(--muted);margin-top:8px">
+                            <li>Led SRE initiatives to improve reliability, automate remediation and provision cloud infra.</li>
+                            <li>Built FastAPI microservices and custom monitoring integrating Prometheus & ELK.</li>
+                            <li>Automated infra with CloudFormation & Python (boto3) and improved CI/CD velocity.</li>
+                        </ul>
                     </div>
                 </div>
-                <div>
-                    <h3>Accomplishments</h3>
-                    <ul class="accomplishments-list">
-                        <li>
-                            <i class="fas fa-trophy"></i>
-                            <div>
-                                <strong>Highest Rating</strong>
-                                <p>Received the highest rating in Capgemini for exceptional performance.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-award"></i>
-                            <div>
-                                <strong>Employee of the Month</strong>
-                                <p>Recognized as Employee of the Month in Capgemini and NuageBiz Tech.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-server"></i>
-                            <div>
-                                <strong>High Availability</strong>
-                                <p>Achieved high availability with minimal server resources, improving service
-                                    reliability.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-star"></i>
-                            <div>
-                                <strong>Awards</strong>
-                                <p>Awarded Best Performer and Pinnacle Award at Hitachi for exemplary performance.</p>
-                            </div>
-                        </li>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot" aria-hidden="true" style="background:var(--accent-2)"></div>
+                    <div class="timeline-content card">
+                        <div class="company">Professional II — Capgemini, Bengaluru <span style="float:right;color:var(--muted);font-weight:600">Dec 2021 — Sep 2023</span></div>
+                        <ul style="color:var(--muted);margin-top:8px">
+                            <li>Led full-stack projects, established CI/CD workflows and improved deployment reliability.</li>
+                            <li>Architected load balancing, scaling, and observability for production services.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot" aria-hidden="true" style="background:#6ee7b7"></div>
+                    <div class="timeline-content card">
+                        <div class="company">Software Developer — Nuage BizTech / Infocom Network (2019 — 2021)</div>
+                        <ul style="color:var(--muted);margin-top:8px">
+                            <li>Built REST APIs with Django/DRF, containerized apps, and automated deployments with Docker & Nginx.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <div class="section-header" style="margin-top:22px">
+                <h2>Projects</h2>
+                <div class="section-sub muted">Selected contributions</div>
+            </div>
+
+            <div class="projects-grid" style="margin-top:12px">
+                <div class="card project-card">
+                    <div class="project-header">SRE Platform — Autoremediation & Service Desk</div>
+                    <div style="color:var(--muted)">
+                        Built automation tooling to remediate incidents, unify alerts, and provide runbooks for responders.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-item">Python</span><span class="tech-item">FastAPI</span><span class="tech-item">Jenkins</span><span class="tech-item">Prometheus</span>
+                    </div>
+                </div>
+
+                <div class="card project-card">
+                    <div class="project-header">Simulation Center Platform</div>
+                    <div style="color:var(--muted)">
+                        Feature development for training platforms with scalable backend services and dashboards.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-item">Django</span><span class="tech-item">Vue.js</span><span class="tech-item">Postgres</span>
+                    </div>
+                </div>
+
+                <div class="card project-card">
+                    <div class="project-header">SafelyBack & MoveTek</div>
+                    <div style="color:var(--muted)">
+                        Implemented backup solutions and transportation services with focus on HA and automation.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-item">Docker</span><span class="tech-item">AWS</span><span class="tech-item">MongoDB</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Accomplishments -->
+        <section id="education">
+            <div class="section-header" style="margin-top:22px">
+                <h2>Education & Accomplishments</h2>
+                <div class="section-sub muted">Credentials & recognition</div>
+            </div>
+
+            <div class="grid" style="grid-template-columns:1fr 1fr; margin-top:12px">
+                <div class="card">
+                    <strong>Bachelor of Technology</strong>
+                    <div class="muted" style="margin-top:8px">C.V. Raman College of Engineering, Bhubaneshwar (2009 - 2013)</div>
+                </div>
+
+                <div class="card">
+                    <strong>Accomplishments</strong>
+                    <ul style="color:var(--muted);margin-top:10px;list-style:none;padding-left:0;display:flex;flex-direction:column;gap:8px">
+                        <li>Highest Rating at Capgemini — recognized for exceptional performance.</li>
+                        <li>Employee of the Month — Capgemini & NuageBiz Tech.</li>
+                        <li>Awards: Best Performer & Pinnacle Award at Hitachi.</li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <div class="container">
-            <p class="declaration">I hereby declare that the information provided is true and correct to the best of my
-                knowledge and belief.</p>
-            <p style="margin-top: 20px;">&copy; 2023 Vimit. All rights reserved.</p>
-        </div>
-    </footer>
+        <footer>
+            <div style="max-width:900px;margin:0 auto">
+                <p style="margin-bottom:10px;color:var(--muted)">I hereby declare that the information provided is true and correct to the best of my knowledge and belief.</p>
+                <div style="color:var(--muted)">© <span id="currentYear"></span> Vimit. All rights reserved.</div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const btn = document.getElementById('menuBtn');
+        const nav = document.getElementById('navLinks');
+        btn && btn.addEventListener('click', () => {
+            if (nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'flex';
+                nav.style.flexDirection = 'column';
+                nav.style.background = 'transparent';
+                nav.style.position = 'absolute';
+                nav.style.right = '20px';
+                nav.style.top = '68px';
+                nav.style.padding = '10px';
+                nav.style.borderRadius = '10px';
+                nav.style.boxShadow = '0 8px 30px rgba(2,6,23,0.6)';
+            }
+        });
+
+        // simple progressive enhancement: close menu on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 980) {
+                nav.style.display = '';
+                nav.style.position = '';
+                nav.style.top = '';
+                nav.style.right = '';
+                nav.style.padding = '';
+                nav.style.boxShadow = '';
+                nav.style.flexDirection = '';
+            } else {
+                // hide nav by default on small screens
+                nav.style.display = 'none';
+            }
+        });
+
+        // set initial mobile state
+        if (window.innerWidth <= 980) {
+            document.getElementById('navLinks').style.display = 'none';
+        }
+
+        // dynamic copyright year
+        const yearEl = document.getElementById('currentYear');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>
