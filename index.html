@@ -309,33 +309,65 @@
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="glass-card" style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                    I'm currently available for consulting and new opportunities. Whether you have a question or just
-                    want to say hi, feel free to reach out!
-                </p>
+            <h2 class="section-title" style="text-align: center;">Get In Touch</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem;">
+                I'm currently available for consulting and new opportunities. Feel free to reach out through any of the
+                channels below.
+            </p>
 
-                <div style="display: flex; flex-direction: column; gap: 1.5rem; align-items: center;">
-                    <a href="mailto:talk2vimit@gmail.com" class="btn btn-primary"
-                        style="font-size: 1.1rem; padding: 1rem 2rem;">
-                        <i class="fas fa-envelope"></i> talk2vimit@gmail.com
-                    </a>
-
-                    <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem;">
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+91-9971572155</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Bengaluru, Karnataka</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-github"></i>
-                            <a href="https://github.com/vimit" target="_blank">github.com/vimit</a>
-                        </div>
+            <div class="contact-grid">
+                <!-- Email -->
+                <a href="mailto:talk2vimit@gmail.com" class="contact-card">
+                    <div class="contact-icon-wrapper">
+                        <i class="fas fa-envelope"></i>
                     </div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">talk2vimit@gmail.com</div>
+                </a>
+
+                <!-- Phone -->
+                <a href="tel:+919971572155" class="contact-card">
+                    <div class="contact-icon-wrapper">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-label">Phone (Primary)</div>
+                    <div class="contact-value">+91-9971572155</div>
+                </a>
+
+                <!-- Alternate Phone -->
+                <a href="tel:+917985249689" class="contact-card">
+                    <div class="contact-icon-wrapper">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="contact-label">Phone (Alt)</div>
+                    <div class="contact-value">+91-7985249689</div>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/" target="_blank" class="contact-card">
+                    <div class="contact-icon-wrapper">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="contact-label">LinkedIn</div>
+                    <div class="contact-value">Connect on LinkedIn</div>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/vimit" target="_blank" class="contact-card">
+                    <div class="contact-icon-wrapper">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="contact-label">GitHub</div>
+                    <div class="contact-value">github.com/vimit</div>
+                </a>
+
+                <!-- Location -->
+                <div class="contact-card">
+                    <div class="contact-icon-wrapper">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-label">Location</div>
+                    <div class="contact-value">Bengaluru, Karnataka</div>
                 </div>
             </div>
         </div>
